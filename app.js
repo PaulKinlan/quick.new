@@ -77,6 +77,8 @@ app.get("/:actions/manifest.json", (request, response) => {
 });
 
 // listen for requests :)
-const listener = app.listen(process.env.PORT || 8080, () => {
-  console.log("Your app is listening on port " + listener.address().port);
+const port = process.env.PORT || 8080;
+
+server.listen(port, () => {
+  console.log(`Server running at on ${port}`);
 });
