@@ -1,0 +1,1 @@
+{"version":3,"file":"sw.js","sources":["../../client/sw.js"],"sourcesContent":["\n\n\nonfetch = () => {\n  \n}"],"names":[],"mappings":";;AAGA,OAAO,GAAG,MAAM;AAChB;AACA"}
