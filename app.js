@@ -5,14 +5,14 @@
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
 import express from "express";
 
-import { dirname } from "path";
+import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
-app.use(express.static("build/client", {maxAge: 60 * 1000}));
+app.use(express.static(join(__dirname,"build", "client"), { maxAge: '1h'}));
 
 app.get("/", (request, response) => {
   response.sendFile(__dirname + "/views/index.html");
