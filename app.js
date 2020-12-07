@@ -12,7 +12,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
-app.use(express.static("build/client"));
+app.use(express.static("build/client", {maxAge: 60 * 1000}));
 
 app.get("/", (request, response) => {
   response.sendFile(__dirname + "/views/index.html");
