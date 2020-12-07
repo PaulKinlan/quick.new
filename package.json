@@ -1,7 +1,7 @@
 {
-  "name": "quick.new",
+  "name": "shortcut.cool",
   "version": "1.0.6",
-  "description": "Quick.new",
+  "description": "shortcut.cool",
   "main": "app.js",
   "scripts": {
     "build:clean": "rm -rf ./build/",
