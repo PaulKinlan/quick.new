@@ -5,8 +5,8 @@
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
 import express from "express";
 
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -52,8 +52,8 @@ app.get("/:actions/manifest.json", (request, response) => {
   });
 
   response.json({
-    name: "quick.new",
-    short_name: "quick.new",
+    name: "shortcut.cool",
+    short_name: "shortcut.cool",
     background_color: "#E91E63",
     theme_color: "#E91E63",
     display: "standalone",
