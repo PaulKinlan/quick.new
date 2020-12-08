@@ -1,5 +1,6 @@
 import { html, render } from "lit-html";
 
+
 const actions = [
   {
     name: "Google Docs",
@@ -49,6 +50,11 @@ const addUrl = (event) => {
     actions.splice(actionIndex, 1);
   }
 
+  if (event.submitter.name == "install") {
+    installPromptEvent.prompt();
+    installPromptEvent = undefined;
+  }
+
   render(template(actions), main);
 
   const encodedManifest = btoa(JSON.stringify(actions));
@@ -88,6 +94,7 @@ const template = (actions) => html`
       <input type="url" name="newUrl" value="" placeholder="https://..." />
     </fieldset>
     <button type="submit">Create Launcher</button>
+    <input type="button" name="install" ?disabled=${installPromptEvent===undefined}>Install</button>
   </form>
 `;
 
@@ -109,4 +116,11 @@ onload = () => {
   render(template(actions), main);
 
   navigator.serviceWorker.register("sw.js");
+};
+
+let installPromptEvent;
+onbeforeinstallprompt = (event) => {
+  event.preventDefault();
+  installPromptEvent = event;
+  render(template(actions), main);
 };
