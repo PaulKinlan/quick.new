@@ -3,6 +3,7 @@
 
 // we've started you off with Express (https://expressjs.com/)
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
+import compression from "compression";
 import express from "express";
 
 import { join, dirname } from "path";
@@ -12,10 +13,15 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
+app.use(compression);
 app.use(express.static(join(__dirname,"build", "client"), { maxAge: '1h'}));
 
 app.get("/", (request, response) => {
   response.sendFile(__dirname + "/views/index.html");
+});
+
+app.get("/about", (request, response) => {
+  response.sendFile(__dirname + "/views/about.html");
 });
 
 app.get("/:actions/", (request, response) => {
