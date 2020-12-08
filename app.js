@@ -16,19 +16,23 @@ const app = express();
 // app.use(compression);
 app.use(express.static(join(__dirname,"build", "client"), { maxAge: '1h'}));
 
-app.get("/", (request, response) => {
+app.get("/", (_, response) => {
   response.sendFile(__dirname + "/views/index.html");
 });
 
-app.get("/about", (request, response) => {
+app.get("/about", (_, response) => {
   response.sendFile(__dirname + "/views/about.html");
 });
 
-app.get("/:actions/", (request, response) => {
+app.get("/:actions/", (_, response) => {
   response.sendFile(__dirname + "/views/index.html");
 });
 
-app.get("/:actions/sw.js", (request, response) => {
+app.get("/:actions/images/ic_launcher-96.png", (_, response) => {
+  response.sendFile(__dirname + "/build/client/images/ic_launcher-96.png");
+});
+
+app.get("/:actions/sw.js", (_, response) => {
   response.sendFile(__dirname + "/build/client/sw.js");
 });
 
@@ -48,7 +52,7 @@ app.get("/:actions/manifest.json", (request, response) => {
       url: `/${request.params.actions}/launch?url=${url}`,
       icons: [
         {
-          src: "ic_launcher-96.png",
+          src: "images/ic_launcher-96.png",
           sizes: "96x96",
           purpose: "any",
           type: "image/png",
@@ -66,13 +70,13 @@ app.get("/:actions/manifest.json", (request, response) => {
     icons: [
       {
         sizes: "192x192",
-        src: "/images/ic_launcher.png",
+        src: "images/ic_launcher.png",
         type: "image/png",
         purpose: "maskable",
       },
       {
         sizes: "512x512",
-        src: "/images/web_hi_res_512.png",
+        src: "images/web_hi_res_512.png",
         type: "image/png",
         purpose: "any",
       },
