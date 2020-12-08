@@ -14,26 +14,27 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 
 // app.use(compression);
-app.use(express.static(join(__dirname,"build", "client"), { maxAge: '1h'}));
+app.use(express.static(join(__dirname, "build", "client"), { maxAge: "1h" }));
 
 app.get("/", (_, response) => {
-  response.sendFile(__dirname + "/views/index.html");
+  response.sendFile(join(__dirname, "views", "index.html"));
 });
 
 app.get("/about", (_, response) => {
-  response.sendFile(__dirname + "/views/about.html");
+  response.sendFile(join(__dirname, "views", "about.html"));
 });
 
 app.get("/:actions/", (_, response) => {
-  response.sendFile(__dirname + "/views/index.html");
+  response.sendFile(join(__dirname, "views", "index.html"));
 });
 
-app.get("/:actions/images/ic_launcher-96.png", (_, response) => {
-  response.sendFile(__dirname + "/build/client/images/ic_launcher-96.png");
+app.get("/:actions/images/:image", (request, response) => {
+  const { action, image } = request.params;
+  response.sendFile(join(__dirname, "build", "client", "images", image));
 });
 
 app.get("/:actions/sw.js", (_, response) => {
-  response.sendFile(__dirname + "/build/client/sw.js");
+  response.sendFile(join(__dirname, "build", "client", "/sw.js"));
 });
 
 app.get("/:actions/launch", (request, response) => {
