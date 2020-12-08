@@ -13,7 +13,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
-app.use(compression);
+// app.use(compression);
 app.use(express.static(join(__dirname,"build", "client"), { maxAge: '1h'}));
 
 app.get("/", (request, response) => {
