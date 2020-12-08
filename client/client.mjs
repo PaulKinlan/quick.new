@@ -1,6 +1,5 @@
 import { html, render } from "lit-html";
 
-
 const actions = [
   {
     name: "Google Docs",
@@ -94,7 +93,12 @@ const template = (actions) => html`
       <input type="url" name="newUrl" value="" placeholder="https://..." />
     </fieldset>
     <button type="submit">Create Launcher</button>
-    <input type="button" name="install" ?disabled=${installPromptEvent===undefined} value="Install">
+    <input
+      type="button"
+      name="install"
+      ?disabled=${installPromptEvent === undefined}
+      value="Install"
+    />
   </form>
 `;
 
