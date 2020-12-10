@@ -94,7 +94,7 @@ const template = (actions) => html`
     </fieldset>
     <button type="submit">Create Launcher</button>
     <input
-      type="button"
+      type="submit"
       name="install"
       ?disabled=${installPromptEvent === undefined}
       value="Install"
