@@ -92,13 +92,15 @@ const template = (actions) => html`
       <label for="newUrl">URL: </label>
       <input type="url" name="newUrl" value="" placeholder="https://..." />
     </fieldset>
-    <button type="submit">Create Launcher</button>
-    <input
-      type="submit"
-      name="install"
-      ?disabled=${installPromptEvent === undefined}
-      value="Install"
-    />
+    <div class="buttons">
+      <button type="submit">Create Launcher</button>
+      <input
+        type="submit"
+        name="install"
+        ?disabled=${installPromptEvent === undefined}
+        value="Install"
+      />
+    </div>
   </form>
 `;
 
