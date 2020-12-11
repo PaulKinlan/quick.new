@@ -2,17 +2,21 @@ import { html, render } from "lit-html";
 
 const actions = [
   {
-    name: "Google Docs",
+    name: "Google Doc",
     url: "https://docs.new",
   },
   {
-    name: "Google Sheets",
+    name: "Google Sheet",
     url: "https://sheets.new",
   },
   {
-    name: "Google Slides",
+    name: "Google Slide",
     url: "https://slides.new",
   },
+  {
+    name: "Tweet",
+    url: "https://twitter.com/compose/tweet",
+  }
 ];
 
 let manifestElement;
@@ -73,13 +77,13 @@ const template = (actions) => html`
     ${actions.map(
       ({ name, url }, i) =>
         html`
-          <input type="text" name="name" value="${name}" />
-          <input type="url" name="url" value="${url}" />
+          <label>New <input type="text" name="name" value="${name}" /></label>
+          <label>Opens <input type="url" name="url" value="${url}" /></label>
           <input
             type="submit"
             name="delete"
             index="${i}"
-            value="x"
+            value="Remove"
             title="Delete ${name}"
           />
         `
@@ -87,10 +91,10 @@ const template = (actions) => html`
 
     <fieldset>
       <legend>Add New Shortcut</legend>
-      <label for="newName">Name: </label>
-      <input type="text" name="newName" value="" placeholder="Name of site" />
-      <label for="newUrl">URL: </label>
-      <input type="url" name="newUrl" value="" placeholder="https://..." />
+      <label>New <input type="text" name="newName" value="" placeholder="Name of action" /></label>
+      
+      <label for="newUrl">Opens <input type="url" name="newUrl" value="" placeholder="https://..." /></label>
+      
     </fieldset>
     <div class="buttons">
       <button type="submit">Create Launcher</button>
