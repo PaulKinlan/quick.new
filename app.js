@@ -36,9 +36,7 @@ app.get("/:actions/launch", (request, response) => {
   response.redirect(request.query.url);
 });
 
-// send the default array of dreams to the webpage
 app.get("/:actions/manifest.json", (request, response) => {
-  // express helps us take JS objects and send them as JSON
   let buff = Buffer.from(request.params.actions, "base64");
   let actions = JSON.parse(buff.toString("ascii"));
 
