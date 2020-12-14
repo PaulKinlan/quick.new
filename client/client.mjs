@@ -2,16 +2,20 @@ import { html, render } from "lit-html";
 
 const actions = [
   {
-    name: "Google Doc",
-    url: "https://docs.new",
+    name: "Email",
+    url: "https://mail.new/",
   },
   {
-    name: "Google Sheet",
-    url: "https://sheets.new",
+    name: "Doc",
+    url: "https://docs.new/",
   },
   {
-    name: "Google Slide",
-    url: "https://slides.new",
+    name: "Sheet",
+    url: "https://sheets.new/",
+  },
+  {
+    name: "Slide",
+    url: "https://slides.new/",
   },
   {
     name: "Tweet",
