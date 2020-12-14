@@ -92,9 +92,7 @@ const template = (actions) => html`
     <fieldset>
       <legend>Add New Shortcut</legend>
       <label>New <input type="text" name="newName" value="" placeholder="Name of action" /></label>
-      
       <label for="newUrl">Opens <input type="url" name="newUrl" value="" placeholder="https://..." /></label>
-      
     </fieldset>
     <div class="buttons">
       <button type="submit">Create Launcher</button>
